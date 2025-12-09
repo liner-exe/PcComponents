@@ -113,25 +113,5 @@
         <p>&copy; 2025 PCcomponents. Все права защищены.</p>
     </div>
 </footer>
-
-<script>
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav');
-    burger.addEventListener('click', () => {
-        burger.classList.toggle('active');
-        nav.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
-    });
-
-    const filtersToggleBtn = document.querySelector('.filters-toggle-button');
-    const filters = document.querySelector('.filters');
-
-    filtersToggleBtn?.addEventListener('click', () => {
-        filters.classList.toggle('active');
-        filtersToggleBtn.textContent = filters.classList.contains('active')
-            ? 'Скрыть фильтры'
-            : 'Показать фильтры';
-    });
-</script>
 </body>
 </html>
