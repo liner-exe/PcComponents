@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="../js/pages/cart.js" type="module"></script>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <div class="logo">PC<span>components</span></div>
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">Главная</a></li>
+                <li><a href="../catalog/index.html">Каталог</a></li>
+                <li><a href="../offer/index.html">Оферта</a></li>
+                <li><a href="../contacts/index.html">Контакты</a></li>
+                <li><a href="../cart/index.html">Корзина</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="container cart-layout">
+        <div class="cart-products">
+            <h1>Корзина</h1>
+            <div class="products-grid" id="cartItems">
+            </div>
+        </div>
+        <div class="cart-control">
+            <h2>Ваш заказ</h2>
+            <div style="display: flex; justify-content: space-between">
+                <h3><span id="cartTotalItems">0</span> товаров</h3>
+                <h3 id="cartTotal">0</h3>
+            </div>
+            <a class="button" id="checkout">Перейти к оформлению</a>
+        </div>
+
+        <div id="messageBox" class="message-box-overlay">
+            <div class="message-box-content">
+                <h3 id="messageTitle" class="message-box-title"></h3>
+                <p id="messageText" class="message-box-text"></p>
+                <button onclick="hideMessageBox()" class="message-box-button">
+                    ОК
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <p>&copy; 2025 PCcomponents. Все права защищены.</p>
+    </div>
+</footer>
+
+<script>
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('nav');
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        nav.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+
+    function showMessageBox(title, text) {
+        document.getElementById('messageTitle').textContent = title;
+        document.getElementById('messageText').textContent = text;
+        document.getElementById('messageBox').classList.add('show');
+    }
+
+    function hideMessageBox() {
+        document.getElementById('messageBox').classList.remove('show');
+    }
+
+    document.getElementById('checkout').addEventListener('click', () => {
+        const total = document.getElementById('cartTotal');
+
+        if (Number(total.textContent) === 0) {
+            showMessageBox("Ошибка", "Корзина пуста");
+            return;
+        }
+
+        showMessageBox(
+            "Заказ оформлен!",
+            `Ваш заказ на сумму ${total.textContent} успешно передан в обработку. Спасибо за покупку!`
+        );
+    });
+</script>
+</body>
+</html>
