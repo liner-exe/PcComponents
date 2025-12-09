@@ -1,15 +1,15 @@
 import { CartPageController } from "../cart/cart.page.controller.js";
+import { burgerMenu } from "../components/burger-menu.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     CartPageController.init();
+
+    burgerMenu();
 });
 
-const burger = document.querySelector('.burger');
-const nav = document.querySelector('nav');
-burger.addEventListener('click', () => {
-    burger.classList.toggle('active');
-    nav.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
+const closeModal = document.getElementById('closeModal');
+closeModal.addEventListener('click', () => {
+   hideMessageBox();
 });
 
 function showMessageBox(title, text) {
