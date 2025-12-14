@@ -47,6 +47,8 @@ li {
     -moz-appearance: none;
     appearance: none;
     position: absolute;
+
+    opacity: 0;
 }
 
 .radio-label {
@@ -105,7 +107,9 @@ li {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+
     position: absolute;
+    opacity: 0;
 }
 
 .checkbox-label {
