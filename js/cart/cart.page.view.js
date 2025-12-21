@@ -9,7 +9,7 @@ export const CartPageView = {
 
         if (cart.length === 0) {
             items.innerHTML = "<p style='color: #fff'>Корзина пуста.</p>";
-            total.textContent = (0).toString() + '₽';
+            total.textContent = (0).toString();
             totalItems.textContent = (0).toString();
             return;
         }
@@ -47,7 +47,7 @@ export const CartPageView = {
         `});
 
         items.innerHTML = itemsHTML;
-        total.textContent = CartModel.getTotal(cart).toLocaleString() + '₽';
+        total.textContent = CartModel.getTotal(cart).toLocaleString();
         totalItems.textContent = CartModel.getItemsCount(cart);
     }
 };
