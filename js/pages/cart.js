@@ -32,6 +32,6 @@ document.getElementById('checkout').addEventListener('click', () => {
 
     showMessageBox(
         "Заказ оформлен!",
-        `Ваш заказ на сумму ${total.textContent} успешно передан в обработку. Спасибо за покупку!`
+        `Ваш заказ на сумму ${total.textContent + '₽'} успешно передан в обработку. Спасибо за покупку!`
     );
 });
